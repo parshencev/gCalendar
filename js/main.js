@@ -29,7 +29,7 @@ function App(){
 			this.authorization.removeAttribute("data-target");
 			gapi.client.calendar.events.list({calendarId: "primary" }).then(this.loadEvents);
 		} else {
-			this.authorization.setAttribute("data-taget", "true");
+			this.authorization.setAttribute("data-target", "true");
 			this.main.removeAttribute("data-target");
 		}
 	};

@@ -3,9 +3,9 @@ var CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleuserco
 		SCOPES = "https://www.googleapis.com/auth/calendar.readonly",
 		main = document.getElementById("main");
 		authorization = document.getElementById("authorization");
-		in = document.getElementById("in");
-		out = document.getElementById("out");
-		events = document.getElementById("events");
+		inButton = document.getElementById("in");
+		outButton = document.getElementById("out");
+		eventsDOM = document.getElementById("events");
 
 function initGAPI{
 	gapi.load('client:auth2', initClient);
@@ -19,8 +19,8 @@ function initClient{
 	}).then(function(){
 		gapi.auth2.getAuthInstance().isSignedIn.listen(route);
 		route(gapi.auth2.getAuthInstance().isSignedIn.get());
-		in.addEventListener("click", entry);
-		out.addEventListener("click", exit);
+		inButton.addEventListener("click", entry);
+		outButton.addEventListener("click", exit);
 	});
 }
 
@@ -28,7 +28,7 @@ function route(auth){
 	if (auth) {
 		main.setAttribute("data-target", "true");
 		authorization.removeAttribute("data-target");
-		gapi.client.calendar.events.list({calendarId: "primary" }).then(loadEvents);
+		gapi.client.calendar.eventsDOM.list({calendarId: "primary" }).then(loadEvents);
 	} else {
 		authorization.setAttribute("data-target", "true");
 		main.removeAttribute("data-target");
@@ -53,7 +53,7 @@ function loadEvents(data){
 				title = document.createTextNode(item.summary);
 		dt.appendChild(title);
 		dd.appendChild(description);
-		events.appendChild(dt);
-		events.appendChild(dd);
+		eventsDOM.appendChild(dt);
+		eventsDOM.appendChild(dd);
 	}
 }

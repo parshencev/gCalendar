@@ -11,22 +11,22 @@ function App(){
 		console.log(this, "initGapi");
 		gapi.load('client:auth2', this.initClient);
 	};
-	this.initClient = function(){
+	this.initClient = (function(){
 		console.log(this, "initClient");
 		gapi.client.init({
 			discoveryDocs: this.docs,
 			clientId : this.clientId,
 			scopes: this.scopes
 		}).then(this.initEvents);
-	};
-	this.initEvents = function(){
+	}).bind(this);
+	this.initEvents = (function(){
 		console.log(this, "initEvents");
 		gapi.auth2.getAuthInstance().isSignedIn.listen(this.route);
 		this.route(gapi.auth2.getAuthInstance().isSignedIn.get());
 		this.in.addEventListener("click", this.entry);
 		this.out.addEventListener("click", this.exit);
-	};
-	this.route = function(auth){
+	}).bind(this);
+	this.route = (function(auth){
 		console.log(this, "route");
 		if (auth) {
 			this.main.setAttribute("data-target", "true");
@@ -36,7 +36,7 @@ function App(){
 			this.authorization.setAttribute("data-target", "true");
 			this.main.removeAttribute("data-target");
 		}
-	};
+	}).bind(this);
 	this.entry = function(){
 		console.log(this, "entry");
 		gapi.auth2.getAuthInstance().signIn();
@@ -45,7 +45,7 @@ function App(){
 		console.log(this, "exit");
 		gapi.auth2.getAuthInstance().signOut();
 	};
-	this.loadEvents = function(data){
+	this.loadEvents = (function(data){
 		console.log(this, "loadEvents");
 		var items = data.result.items;
 		for (var key in items){
@@ -59,6 +59,6 @@ function App(){
 			this.events.appendChild(dt);
 			this.events.appendChild(dd);
 		}
-	};
+	}).bind(this);
 	return this;
 }

@@ -1,7 +1,7 @@
 function App(){
-	this.clientId = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com";
-	this.docs = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-	this.scopes = "https://www.googleapis.com/auth/calendar.readonly";
+	window.clientId = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com";
+	window.docs = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+	window.scopes = "https://www.googleapis.com/auth/calendar.readonly";
 	this.main = document.getElementById("main");
 	this.authorization = document.getElementById("authorization");
 	this.in = document.getElementById("in");
@@ -11,14 +11,14 @@ function App(){
 		console.log(this, "initGapi");
 		gapi.load('client:auth2', this.initClient);
 	};
-	this.initClient = (function(){
+	this.initClient = function(){
 		console.log(this, "initClient");
 		gapi.client.init({
-			discoveryDocs: this.docs,
-			clientId : this.clientId,
-			scopes: this.scopes
+			discoveryDocs: window.docs,
+			clientId : window.clientId,
+			scopes: window.scopes
 		}).then(this.initEvents);
-	}).bind(this);
+	};
 	this.initEvents = (function(){
 		console.log(this, "initEvents");
 		gapi.auth2.getAuthInstance().isSignedIn.listen(this.route);

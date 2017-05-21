@@ -1,6 +1,6 @@
 function App(){
 	this.clientId = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com";
-	this.docs = "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
+	this.docs = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 	this.scopes = "https://www.googleapis.com/auth/calendar.readonly";
 	this.main = document.getElementById("main");
 	this.authorization = document.getElementById("authorization");

@@ -8,22 +8,26 @@ function App(){
 	this.out = document.getElementById("out");
 	this.events = document.getElementById("events");
 	this.initGAPI = function(){
+		console.log(this, "initGapi");
 		gapi.load('client:auth2', this.initClient);
 	};
 	this.initClient = function(){
+		console.log(this, "initClient");
 		gapi.client.init({
-			clientId : this.clientId,
 			discoveryDocs: this.docs,
+			clientId : this.clientId,
 			scopes: this.scopes
 		}).then(this.initEvents);
 	};
 	this.initEvents = function(){
+		console.log(this, "initEvents");
 		gapi.auth2.getAuthInstance().isSignedIn.listen(this.route);
 		this.route(gapi.auth2.getAuthInstance().isSignedIn.get());
 		this.in.addEventListener("click", this.entry);
 		this.out.addEventListener("click", this.exit);
 	};
 	this.route = function(auth){
+		console.log(this, "route");
 		if (auth) {
 			this.main.setAttribute("data-target", "true");
 			this.authorization.removeAttribute("data-target");
@@ -34,12 +38,15 @@ function App(){
 		}
 	};
 	this.entry = function(){
+		console.log(this, "entry");
 		gapi.auth2.getAuthInstance().signIn();
 	};
 	this.exit = function(){
+		console.log(this, "exit");
 		gapi.auth2.getAuthInstance().signOut();
 	};
 	this.loadEvents = function(data){
+		console.log(this, "loadEvents");
 		var items = data.result.items;
 		for (var key in items){
 			var item = items[key],

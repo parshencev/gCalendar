@@ -1,7 +1,7 @@
 function App(){
-	window.clientId = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com";
-	window.docs = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-	window.scopes = "https://www.googleapis.com/auth/calendar.readonly";
+	window.CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com";
+	window.DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+	window.SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 	this.main = document.getElementById("main");
 	this.authorization = document.getElementById("authorization");
 	this.in = document.getElementById("in");
@@ -14,9 +14,9 @@ function App(){
 	this.initClient = function(){
 		console.log(this, "initClient");
 		gapi.client.init({
-			discoveryDocs: window.docs,
-			clientId : window.clientId,
-			scopes: window.scopes
+			discoveryDocs: window.DISCOVERY_DOCS,
+			clientId : window.CLIENT_ID,
+			scopes: window.SCOPES
 		}).then(this.initEvents);
 	};
 	this.initEvents = (function(){

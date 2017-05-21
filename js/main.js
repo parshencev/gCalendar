@@ -7,11 +7,11 @@ var CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleuserco
 		outButton = document.getElementById("out");
 		eventsDOM = document.getElementById("events");
 
-function initGAPI{
+function initGAPI(){
 	gapi.load('client:auth2', initClient);
 }
 
-function initClient{
+function initClient(){
 	gapi.client.init({
 		discoveryDocs: DISCOVERY_DOCS,
 		clientId : CLIENT_ID,
@@ -35,11 +35,11 @@ function route(auth){
 	}
 }
 
-function entry{
+function entry(){
 	gapi.auth2.getAuthInstance().signIn();
 }
 
-function exit{
+function exit(){
 	gapi.auth2.getAuthInstance().signOut();
 }
 

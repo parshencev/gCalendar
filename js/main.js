@@ -54,7 +54,7 @@ function exit(){
 }
 
 function newEvent(){
-	gapi.client.calendar.insert({
+	gapi.client.calendar.events.insert({
 		calendarId: "primary",
 		maxAttendees: "1",
 		supportsAttachments: "false",

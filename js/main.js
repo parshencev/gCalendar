@@ -11,7 +11,7 @@ var CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleuserco
 		description = document.getElementById("description"),
 		date = new Date,
 		year = date.getFullYear(),
-		month = date.getMonth().toString().length == 1 ? ("0" + (parseInt(date.getMonth()) + 1) : parseInt(date.getMonth()) + 1,
+		month = date.getMonth().toString().length == 1 ? ("0" + (parseInt(date.getMonth()) + 1)) : parseInt(date.getMonth()) + 1,
 		day = date.getDate().toString().length == 1 ? ("0" + date.getDate()) : date.getDate(),
 		startDate = year + "-" + month + "-" + day,
 		endDate = year + "-" + month + "-" + (parseInt(day) + 1);

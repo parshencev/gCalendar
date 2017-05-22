@@ -28,7 +28,7 @@ function route(auth){
 	if (auth) {
 		main.setAttribute("data-target", "true");
 		authorization.removeAttribute("data-target");
-		gapi.client.calendar.eventsDOM.list({calendarId: "primary" }).then(loadEvents);
+		gapi.client.calendar.events.list({calendarId: "primary" }).then(loadEvents);
 	} else {
 		authorization.setAttribute("data-target", "true");
 		main.removeAttribute("data-target");

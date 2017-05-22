@@ -39,6 +39,17 @@ button{
 	cursor: pointer;
 	outline: none;
 }
+dl{
+	width: 100%;
+	max-width: 400px;
+}
+dt{
+	font-weight: bold;
+}
+dd{
+	margin-left: 20px;
+	text-align: justify;
+}
 #authorization button{
 	width: 100%;
 	text-align: center;

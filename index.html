@@ -14,8 +14,22 @@
     		<p>Для работы с приложением необходимо подтвердить ваш google аккаунт и разрешить изменения в вашем google календаре</p>
     		<button id="in">Перейти на страницу верификации</button>
     	</section>
-    	<section class="page" id="main">
+    	<section class="page" id="main" data-target="true">
     		<button id="out">Выйти</button>
+    		<details>
+    			<summary>Добавить запись</summary>
+    			<section class="form">
+    				<label>
+    					<span class="title">Заголовок</span>
+    					<input type="text" placeholder="Заголовок" class="form_element" id="title">
+    				</label>
+    				<label>
+    					<span class="title">Описание</span>
+    					<input type="text" placeholder="Описание" class="form_element" id="description">
+    				</label>
+    				<button class="button" id="add">Добавить</button>
+    			</section>
+    		</details>
     		<section class="block">
     			<fieldset>
     				<legend>События в вашем календаре</legend>

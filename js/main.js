@@ -1,11 +1,20 @@
 var CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com",
 		DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
 		SCOPES = "https://www.googleapis.com/auth/calendar.readonly",
-		main = document.getElementById("main");
-		authorization = document.getElementById("authorization");
-		inButton = document.getElementById("in");
-		outButton = document.getElementById("out");
-		eventsDOM = document.getElementById("events");
+		main = document.getElementById("main"),
+		authorization = document.getElementById("authorization"),
+		inButton = document.getElementById("in"),
+		outButton = document.getElementById("out"),
+		eventsDOM = document.getElementById("events"),
+		add = document.getElementById("add"),
+		title = document.getElementById("title"),
+		description = document.getElementById("description"),
+		date = new Date,
+		year = date.getFullYear(),
+		month = date.getMonth().toString().length == 1 ? ("0" + date.getMonth()) : date.getMonth(),
+		day = date.getDate().toString().length == 1 ? ("0" + date.getDate()) : date.getDate(),
+		startDate = year + "-" + month + "-" + day,
+		endDate = year + "-" + month + "-" + (parseInt(day) + 1);
 
 function initGAPI(){
 	gapi.load('client:auth2', initClient);
@@ -21,6 +30,7 @@ function initClient(){
 		route(gapi.auth2.getAuthInstance().isSignedIn.get());
 		inButton.addEventListener("click", entry);
 		outButton.addEventListener("click", exit);
+		add.addEventListener("click", newEvent);
 	});
 }
 
@@ -41,6 +51,24 @@ function entry(){
 
 function exit(){
 	gapi.auth2.getAuthInstance().signOut();
+}
+
+function newEvent(){
+	gapi.client.calendar.insert({
+		calendarId: "primary",
+		maxAttendees: "1",
+		supportsAttachments: "false",
+		summary: title.innerHTML || "simple title",
+		description: description.innerHTML || "text text text text text",
+		end: {
+			date: endDate
+		},
+		start: {
+			date: startDate
+		}
+	}).then(function(data){
+		console.log(data);
+	});
 }
 
 function loadEvents(data){

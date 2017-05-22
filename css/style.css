@@ -70,3 +70,16 @@ dd{
 	width: 100%;
 	text-align: center;
 }
+summary, label{
+	cursor: pointer;
+	outline: none;
+}
+.title{
+	display: block;
+	padding-left: 10px;
+	font-size: 14px;
+}
+.form_element{
+	width: 100%;
+	box-sizing: border-box;
+}

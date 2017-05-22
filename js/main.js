@@ -1,6 +1,6 @@
 var CLIENT_ID = "784730492192-sr80jkcgb0s70eo38huh1pk5h46krf44.apps.googleusercontent.com",
 		DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
-		SCOPES = "https://www.googleapis.com/auth/calendar.readonly",
+		SCOPES = "https://www.googleapis.com/auth/calendar",
 		main = document.getElementById("main"),
 		authorization = document.getElementById("authorization"),
 		inButton = document.getElementById("in"),

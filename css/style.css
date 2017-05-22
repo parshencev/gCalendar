@@ -39,16 +39,32 @@ button{
 	cursor: pointer;
 	outline: none;
 }
+fildset{
+	border: none;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding-bottom: 0;
+}
 dl{
 	width: 100%;
 	max-width: 400px;
 }
 dt{
-	font-weight: bold;
+  font-weight: bold;
+	text-align: center;
+	padding: 10px 0;
+	background: #8b8a8a;
+	color: #fff;
+	border-radius: 3px;
 }
 dd{
-	margin-left: 20px;
 	text-align: justify;
+  margin: 0 auto;
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  background: #efefef;
 }
 #authorization button{
 	width: 100%;

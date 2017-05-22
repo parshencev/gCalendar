@@ -13,10 +13,10 @@ function initGAPI(){
 
 function initClient(){
 	gapi.client.init({
-		discoveryDocs: DISCOVERY_DOCS,
-		clientId : CLIENT_ID,
-		scopes: SCOPES
-	}).then(function(){
+    discoveryDocs: DISCOVERY_DOCS,
+    clientId: CLIENT_ID,
+    scope: SCOPES
+  }).then(function(){
 		gapi.auth2.getAuthInstance().isSignedIn.listen(route);
 		route(gapi.auth2.getAuthInstance().isSignedIn.get());
 		inButton.addEventListener("click", entry);

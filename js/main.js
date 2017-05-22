@@ -56,8 +56,8 @@ function exit(){
 function newEvent(){
 	gapi.client.calendar.events.insert({
 		calendarId: "primary",
-		summary: title.innerHTML || "simple title",
-		description: description.innerHTML || "text text text text text",
+		summary: title.value || "simple title",
+		description: description.value || "text text text text text",
 		end: {
 			date: endDate
 		},
